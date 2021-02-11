@@ -1,0 +1,77 @@
+// Ashish Waghmode 
+//  roll no : 2174
+#include<iostream>
+using namespace std;
+class complex
+{	
+private:
+int real;
+int imag;
+public:
+void setvalue(int,int);
+complex  operator *(complex &b);
+complex  operator +(complex &d);
+void display();
+friend void operator <<(ostream&output,complex&s );	
+friend void operator >>(istream&input,complex&q );
+};
+void operator <<(ostream&output,complex&s )
+{
+output<<s.real<<"+"<<s.imag<<"i";
+}
+void operator >>(istream&input,complex&q )
+{
+input>>q.real>>q.imag;
+}
+void complex::setvalue(int c,int d)
+{
+real=c;
+imag=d;	
+}
+complex complex::operator *(complex &b)
+    {
+complex c7;
+    c7.real=real*b.real;
+    c7.imag=imag*b.imag;
+return(c7);
+    }
+complex complex::operator +(complex &d)
+    {
+complex c8;
+    c8.real=real+d.real;
+    c8.imag=imag+d.imag;
+return(c8);
+    }
+void complex::display()
+{
+cout<<real<<"*"<<imag<<"i"<<"\n";
+cout<<real<<"+"<<imag<<"i"<<"\n";
+}
+int main()
+    {
+complex  c1,c2,c3,c4;
+cout<<" Enter First  Object :"<<"\n";
+cin>>c3;
+cout<<" First Object is :\n"<<c3;
+cout<<"\n Enter Second Object :";
+cin>>c4;
+cout<<" Second Object is:\n"<<c4;
+    c1=c3+c4;
+    c2=c3*c4;
+cout<<"\n Addition :"<<c1;
+cout<<"\n Multiplication :"<<c2;
+return 0;
+}
+/*
+Enter First  Object :                                                                                                                               
+2                                                                                                                                                    
+3                                                                                                                                                    
+ First Object is :                                                                                                                                   
+2+3i                                                                                                                                                 
+ Enter Second Object :4                                                                                                                              
+6                                                                                                                                                    
+ Second Object is:                                                                                                                                   
+4+6i                                                                                                                                                 
+ Addition :6+9i                                                                                                                                      
+ Multiplication :8+18i      
+*/

@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+class ex
+{
+    int age;
+    double sal;
+    char city[10];
+    bool car;
+public :
+    void putdata()
+    {
+        cout<<"\n The Details You Entered Are as Follow :"<<endl;
+        cout<<"\n Age is : \t "<<age<<endl;
+        cout<<"\n Salary Is :"<<sal<<endl;
+        cout<<"\n City is :"<<city<<endl;
+        cout<<"\n You habve four wheeler. "<<endl;
+        
+        
+        
+    }
+    void exp()
+    { 
+        try
+        {
+            cout<<"\n Enter Details :";
+            cout<<"\n Enter your age :";
+            cin>>age;
+            if(age<18||age>55)
+            {
+                throw(age);
+                
+            }
+            cout<<"\n Enter your Salary : ";
+            cin>>sal;
+            if(sal<50000||sal>100000)
+            {throw(sal);}
+            cout<<"Enter Your City Name :";
+            cin>>city;
+            if(strcmp(city,"pune")&&strcmp(city,"mumbai"));
+            {
+                throw(city);
+            }
+            cout<<"\n Do you Have any four wheeler ?";
+            cin>>car;
+            if(car==false)
+            {
+                throw(car);
+            }
+            
+        }
+        catch(int age)
+        {
+            cout<<"\n Age entered by you is invalid....";throw;
+        }
+        catch(double sal)
+        {
+            cout<<"\n Salary entered by you is invalid...";throw;
+        }
+        catch(char city[10])
+        {
+            cout<<"\n City entered you is invalid....";throw;
+        }
+        catch(bool car)
+        {
+            cout<<"\n you don't have any four wheeler...";throw;
+            
+        }
+    }
+}

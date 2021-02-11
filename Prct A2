@@ -1,0 +1,104 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+// Create a new class : calculator
+class calculator
+{
+        // private Class data members are not accessible outside class
+	private:        
+	double oprand1; // first operand
+	double oprand2; // second operand
+	double result; //  Result 
+	char opr;      // select operation
+	
+	     // public Class members functions are accessible outside/inside class
+public:
+	void operation()
+	{
+	sos: // jump label
+	
+	cout<<"\n Enter operand 1 ,operator and oprand 2 "; // display message
+		cin>>oprand1>>opr>>oprand2;                       // Read data 
+		
+		// Select operation 
+		switch(opr)
+		{
+		case '+':
+		result=oprand1+oprand2;
+		break;
+		case '*':
+		result=oprand1*oprand2;
+		break;
+		case '-':
+		result=oprand1-oprand2;
+		break;
+		case '/':
+		if(oprand2==0)
+                          {
+cout<<"\n \a denominator can not be 0 "
+                                "\n  it will bring infinite answer "
+                                "\n pleasecheak the second oprand \n";
+goto sos;// jump to sos
+                           }
+else
+                      {
+result=oprand1/oprand2;
+                      }
+		break;
+		default:
+			cout<<"\n \a please check operator ";
+			goto sos;
+			break;
+		}
+	}
+void display()
+	{
+		cout<<"\n"<<oprand1<<opr<<oprand2<<"="<<result;
+	}
+
+		
+};  // end of class 
+
+
+     // Define class member function 
+	
+
+
+int main()
+{
+	char ch;
+	calculator l;
+	do
+	{
+		l.operation();
+		l.display();
+		cout<<"\n do you want to continue y/n";
+		cin>>ch;
+	}while(ch=='y'||ch=='Y');
+	cout<<"\n thanks for using our service \n";
+	return 0;
+}
+/*
+Enter operand 1 ,operator and oprand 2 3+10                                                                                                        
+                                                                                                                                                    
+3+10=13                                                                                                                                             
+ do you want to continue y/nY                                                                                                                       
+                                                                                                                                                    
+ Enter operand 1 ,operator and oprand 2 8-5                                                                                                         
+                                                                                                                                                    
+8-5=3                                                                                                                                               
+ do you want to continue y/ny                                                                                                                       
+                                                                                                                                                    
+ Enter operand 1 ,operator and oprand 2 9/3                                                                                                         
+                                                                                                                                                    
+9/3=3                                                                                                                                               
+ do you want to continue y/ny                                                                                                                       
+                                                                                                                                                    
+ Enter operand 1 ,operator and oprand 2 3*6                                                                                                         
+                                                                                                                                                    
+3*6=18                                                                                                                                              
+ do you want to continue y/nn                                                                                                                       
+                                                                                                                                                    
+ thanks for using our service                                                                                                                       
+                          */
