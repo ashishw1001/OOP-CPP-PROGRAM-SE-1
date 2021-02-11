@@ -1,0 +1,95 @@
+#include<iostream>
+#include<graphics.h>
+using namespace std ;
+class drawcircle
+{
+
+	public:
+	void plot(int x,int y,int xc,int yc)
+	
+{
+    putpixel(x+xc,y+yc,9);
+
+	putpixel(-x+xc,y+yc,9);
+
+	putpixel(-y+xc,x+yc,9);
+
+	putpixel(-y+xc,-x+yc,9);
+	
+    putpixel(-x+xc,-y+yc,9);
+
+	putpixel(x+xc,-y+yc,9);
+
+	putpixel(y+xc,-x+yc,9);
+
+	putpixel(y+xc,x+yc,9);
+
+	}
+
+};
+
+class drawcircle1:public drawcircle
+
+{
+
+	public:
+	void bresenhams();
+
+	
+};
+
+void drawcircle1::bresenhams()
+
+{
+
+	int r,x1,y1,xc,yc;
+
+	cout<<"enter cordinates for circle=";
+
+	cin>>xc>>yc;
+
+	cout<<"enter radius for circle=";
+
+	cin>>r;
+
+	int d=3-(2*r);    //Decision Parameter
+
+	int x=0;
+	int y=r;
+
+	while(x<y)
+
+	{
+
+		plot(x,y,xc,yc);
+
+		delay(1000);
+
+		if(d<0)
+
+		{
+			
+            d=d+(4*x)+6;
+		}
+		else
+		{
+			d=d+(4*(x-y))+10;
+			y=y-1;
+
+		}
+		x=x+1;
+		plot(x,y,xc,yc);
+	}
+}
+
+
+int main()
+{
+	int gd=DETECT,gm;
+	initgraph(&gd,&gm,NULL);
+	drawcircle1 d;
+	d.bresenhams();
+	delay(3000);
+	closegraph();
+	return 0;
+}
